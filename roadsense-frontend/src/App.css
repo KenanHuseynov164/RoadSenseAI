@@ -1,42 +1,55 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.auth-container {
+  width: 350px;
+  margin: 80px auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.08);
+}
+
+.auth-container h2 {
   text-align: center;
+  margin-bottom: 15px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.auth-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.auth-container button {
+  width: 100%;
+  padding: 10px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.error {
+  color: red;
+  font-size: 0.9em;
 }
 
-.card {
-  padding: 2em;
+.success {
+  color: green;
 }
 
-.read-the-docs {
-  color: #888;
+.dashboard {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+.logout {
+  float: right;
+  background: red;
+  padding: 8px 12px;
+  color: white;
+  border: none;
+  border-radius: 8px;
 }

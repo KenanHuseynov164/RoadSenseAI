@@ -4,6 +4,13 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from .database import Base, engine, get_session
 from . import models, schemas, nlp_rules
+from fastapi import FastAPI, Depends, HTTPException, Header
+from jose import jwt
+from .auth_utils import (
+    hash_password, verify_password, create_access_token, decode_token
+)
+from .schemas import UserRegister, UserLogin, TokenResponse
+
 
 app = FastAPI(title="RoadSenseAI Backend", version="0.1.0")
 
@@ -21,17 +28,29 @@ async def on_startup():
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
 
-# --- Dummy authentication: single test user ---
-async def get_current_user(session: AsyncSession = Depends(get_session)) -> models.User:
-    # For MVP we auto-login a single demo user.
-    stmt = select(models.User).where(models.User.email == "demo@roadsense.ai")
+async def get_current_user(
+    authorization: str = Header(None),
+    session: AsyncSession = Depends(get_session)
+):
+    if not authorization:
+        raise HTTPException(status_code=401, detail="Missing Authorization header")
+
+    if not authorization.startswith("Bearer "):
+        raise HTTPException(status_code=401, detail="Invalid token format")
+
+    token = authorization.split(" ")[1]
+    user_id = decode_token(token)
+
+    if not user_id:
+        raise HTTPException(status_code=401, detail="Invalid or expired token")
+
+    stmt = select(models.User).where(models.User.id == user_id)
     result = await session.execute(stmt)
     user = result.scalar_one_or_none()
+
     if not user:
-        user = models.User(email="demo@roadsense.ai", name="Demo User")
-        session.add(user)
-        await session.commit()
-        await session.refresh(user)
+        raise HTTPException(status_code=401, detail="User not found")
+
     return user
 
 # Healthcheck
@@ -103,3 +122,43 @@ async def list_incidents(
             )
         )
     return response
+
+@app.post("/auth/register")
+async def register_user(
+    payload: UserRegister,
+    session: AsyncSession = Depends(get_session),
+):
+    # Check if user exists
+    stmt = select(models.User).where(models.User.email == payload.email)
+    result = await session.execute(stmt)
+    existing = result.scalar_one_or_none()
+
+    if existing:
+        raise HTTPException(status_code=400, detail="Email already registered")
+
+    new_user = models.User(
+        email=payload.email,
+        password_hash=hash_password(payload.password),
+        provider="local"
+    )
+
+    session.add(new_user)
+    await session.commit()
+    return {"message": "User registered successfully"}
+
+
+@app.post("/auth/login", response_model=TokenResponse)
+async def login_user(
+    payload: UserLogin,
+    session: AsyncSession = Depends(get_session),
+):
+    stmt = select(models.User).where(models.User.email == payload.email)
+    result = await session.execute(stmt)
+    user = result.scalar_one_or_none()
+
+    if not user or not verify_password(payload.password, user.password_hash):
+        raise HTTPException(status_code=400, detail="Invalid email or password")
+
+    token = create_access_token(user.id)
+    return TokenResponse(access_token=token)
+

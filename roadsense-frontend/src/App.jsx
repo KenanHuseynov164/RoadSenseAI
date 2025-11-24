@@ -8,12 +8,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-
-        {/* Login & Register */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
-        {/* Protected Dashboard (main app) */}
         <Route
           path="/"
           element={
@@ -22,7 +19,6 @@ function App() {
             </ProtectedRoute>
           }
         />
-
       </Routes>
     </BrowserRouter>
   );

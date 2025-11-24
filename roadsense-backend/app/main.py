@@ -125,10 +125,9 @@ async def list_incidents(
 
 @app.post("/auth/register")
 async def register_user(
-    payload: UserRegister,
-    session: AsyncSession = Depends(get_session),
+    payload: schemas.UserRegister,
+    session: AsyncSession = Depends(get_session)
 ):
-    # Check if user exists
     stmt = select(models.User).where(models.User.email == payload.email)
     result = await session.execute(stmt)
     existing = result.scalar_one_or_none()
@@ -138,14 +137,15 @@ async def register_user(
 
     new_user = models.User(
         email=payload.email,
+        name=payload.name,                           
         password_hash=hash_password(payload.password),
-        provider="local"
+        provider="local",
     )
 
     session.add(new_user)
     await session.commit()
-    return {"message": "User registered successfully"}
 
+    return {"message": "User registered successfully"}
 
 @app.post("/auth/login", response_model=TokenResponse)
 async def login_user(

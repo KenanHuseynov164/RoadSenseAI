@@ -1,0 +1,242 @@
+:root {
+    --primary-color: #007bff;        
+    --accent-color: #17a2b8;       
+    --text-color: #343a40;           
+    --background-color: #e9ecef;      
+    --box-background: #ffffff;
+    --border-color: #ced4da;         
+    --shadow-depth: 0 8px 25px rgba(0, 0, 0, 0.1); 
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif; 
+    
+    background: linear-gradient(135deg, var(--background-color) 0%, #d4e0ff 100%);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    padding: 20px; /* Padding for mobile view */
+}
+
+/* -------------------- */
+/* 2. Layout & Container */
+/* -------------------- */
+
+.login-container {
+    width: 100%;
+    max-width: 450px; 
+    padding: 20px;
+    text-align: center;
+}
+
+/* -------------------- */
+/* 3. Header/Branding   */
+/* -------------------- */
+
+header {
+    margin-bottom: 25px;
+}
+
+.logo {
+    font-size: 2em;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+header p {
+    color: #6c757d;
+    font-size: 0.9em;
+}
+
+/* -------------------- */
+/* 4. Login Box/Form    */
+/* -------------------- */
+
+.login-box {
+    background-color: var(--box-background);
+    padding: 40px 45px; 
+    border-radius: 12px; 
+    box-shadow: var(--shadow-depth); 
+    border-left: 5px solid var(--accent-color); 
+    width: 100%;
+    max-width: 450px; 
+}
+
+.login-box h2 {
+    margin-bottom: 25px;
+    font-weight: 300; 
+    color: var(--text-color);
+    border-bottom: 1px solid #f8f9fa; 
+    padding-bottom: 10px;
+}
+
+/* -------------------- */
+/* 5. Input Fields      */
+/* -------------------- */
+
+.input-group {
+    margin-bottom: 20px; 
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 0.9em;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+/* -------------------- */
+/* 6. Button Styling    */
+/* -------------------- */
+
+.login-btn {
+    width: 100%;
+    padding: 14px; 
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px; 
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.login-btn:hover {
+    background-color: #0056b3;
+}
+
+.login-btn:active {
+    transform: scale(0.99); 
+}
+
+/* -------------------- */
+/* 7. Auxiliary Links   */
+/* -------------------- */
+
+.aux-links {
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+.aux-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.aux-links a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.separator {
+    color: #ccc;
+    margin: 0 8px;
+}
+
+/* -------------------- */
+/* 8. Footer (Optional) */
+/* -------------------- */
+
+footer {
+    margin-top: 20px;
+    font-size: 0.8em;
+    color: #999;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    text-align: left;
+    font-size: 0.9em;
+}
+
+.remember-me input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+
+.social-login {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #f0f0f0; 
+    text-align: center;
+}
+
+.separator-text {
+    font-size: 0.85em;
+    color: #6c757d;
+    margin-bottom: 15px;
+}
+
+.social-btn-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px; 
+}
+
+.social-btn {
+    flex-grow: 1;
+    padding: 10px 5px;
+    font-size: 0.9em;
+    font-weight: 500;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.social-btn i {
+    margin-right: 5px; 
+}
+
+.social-btn.google {
+    background-color: #db4437; /* Google Red */
+    color: white;
+}
+.social-btn.google:hover {
+    background-color: #c33a2e;
+}
+
+.social-btn.apple {
+    background-color: #000000; /* Apple Black */
+    color: white;
+}
+.social-btn.apple:hover {
+    opacity: 0.85;
+}
+
+.social-btn.facebook {
+    background-color: #3b5998; /* Facebook Blue */
+    color: white;
+}
+.social-btn.facebook:hover {
+    background-color: #30487b;
+}

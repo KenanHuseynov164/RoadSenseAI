@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, validator
 from datetime import datetime
 from typing import List, Optional
 
@@ -28,14 +28,22 @@ class UserResponse(UserBase):
         from_attributes = True
 
 
-
 class UserRegister(BaseModel):
     email: str
+    name: str
     password: str
+
+    @validator("password")
+    def password_max_length(cls, v):
+        if len(v) > 72:
+            raise ValueError("Password must be 72 characters or less.")
+        return v
+
 
 class UserLogin(BaseModel):
     email: str
     password: str
+
 
 class TokenResponse(BaseModel):
     access_token: str

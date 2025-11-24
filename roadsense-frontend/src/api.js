@@ -6,7 +6,6 @@ export const api = axios.create({
   baseURL: API,
 });
 
-// Automatically add JWT token to every request
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
   if (token) {
@@ -15,14 +14,14 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-// AUTH
-export const registerUser = (email, password) =>
-  api.post("/auth/register", { email, password });
+// auth
+export const registerUser = (email, name, password) =>
+  api.post("/auth/register", { email, name, password });
 
 export const loginUser = (email, password) =>
   api.post("/auth/login", { email, password });
 
-// INCIDENTS
+// incidents
 export const submitIncident = (description) =>
   api.post("/api/incidents", { description });
 

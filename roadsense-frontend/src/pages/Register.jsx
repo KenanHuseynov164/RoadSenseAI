@@ -46,12 +46,13 @@ function Register() {
 
       <main className="login-box">
         <h2>Driver Sign Up</h2>
-        <form className="login-form" onSubmit={handleSubmit}>
+
+        <form id="signup-form" onSubmit={handleSubmit}>
           <div className="input-group">
             <label htmlFor="name">Full Name</label>
             <input
-              id="name"
               type="text"
+              id="name"
               placeholder="Enter your full name"
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -62,8 +63,8 @@ function Register() {
           <div className="input-group">
             <label htmlFor="email">Email Address</label>
             <input
-              id="email"
               type="email"
+              id="email"
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -74,9 +75,9 @@ function Register() {
           <div className="input-group">
             <label htmlFor="password">Create Password</label>
             <input
-              id="password"
               type="password"
-              placeholder="Create a password"
+              id="password"
+              placeholder="Create a strong password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -86,8 +87,8 @@ function Register() {
           <div className="input-group">
             <label htmlFor="confirm-password">Confirm Password</label>
             <input
-              id="confirm-password"
               type="password"
+              id="confirm-password"
               placeholder="Re-enter your password"
               value={confirm}
               onChange={(e) => setConfirm(e.target.value)}
@@ -105,15 +106,16 @@ function Register() {
 
         <div className="social-login">
           <p className="separator-text">or sign up with</p>
+
           <div className="social-btn-group">
             <button className="social-btn google">
-              <i className="fab fa-google" /> Google
+              <i className="fab fa-google"></i> Google
             </button>
             <button className="social-btn apple">
-              <i className="fab fa-apple" /> Apple
+              <i className="fab fa-apple"></i> Apple
             </button>
             <button className="social-btn facebook">
-              <i className="fab fa-facebook-f" /> Facebook
+              <i className="fab fa-facebook-f"></i> Facebook
             </button>
           </div>
         </div>

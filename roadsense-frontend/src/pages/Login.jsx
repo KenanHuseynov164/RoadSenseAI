@@ -29,13 +29,14 @@ function Login() {
       </header>
 
       <main className="login-box">
-        <h2>Welcome Back</h2>
-        <form className="login-form" onSubmit={handleSubmit}>
+        <h2>Driver Login</h2>
+
+        <form id="login-form" onSubmit={handleSubmit}>
           <div className="input-group">
             <label htmlFor="email">Email Address</label>
             <input
-              id="email"
               type="email"
+              id="email"
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -46,8 +47,8 @@ function Login() {
           <div className="input-group">
             <label htmlFor="password">Password</label>
             <input
-              id="password"
               type="password"
+              id="password"
               placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -57,22 +58,28 @@ function Login() {
 
           {error && <p className="error-text">{error}</p>}
 
+          <div className="remember-me">
+            <input type="checkbox" id="remember" />
+            <label htmlFor="remember">Remember Me</label>
+          </div>
+
           <button type="submit" className="login-btn">
-            Login
+            Log In
           </button>
         </form>
 
         <div className="social-login">
-          <p className="separator-text">or continue with</p>
+          <p className="separator-text">or log in with</p>
+
           <div className="social-btn-group">
             <button className="social-btn google">
-              <i className="fab fa-google" /> Google
+              <i className="fab fa-google"></i> Google
             </button>
             <button className="social-btn apple">
-              <i className="fab fa-apple" /> Apple
+              <i className="fab fa-apple"></i> Apple
             </button>
             <button className="social-btn facebook">
-              <i className="fab fa-facebook-f" /> Facebook
+              <i className="fab fa-facebook-f"></i> Facebook
             </button>
           </div>
         </div>

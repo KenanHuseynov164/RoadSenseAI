@@ -19,6 +19,7 @@ body {
     font-family: 'Roboto', sans-serif; 
     
     /* Adds a subtle, modern gradient background */
+    
     background: linear-gradient(135deg, var(--background-color) 0%, #d4e0ff 100%);
     color: var(--text-color);
     display: flex;
@@ -184,4 +185,64 @@ footer {
 .remember-me input[type="checkbox"] {
     margin-right: 8px;
     /* Custom checkbox styling (optional, advanced CSS could hide the default box) */
+}
+
+
+.social-login {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #f0f0f0; /* Light separator line */
+    text-align: center;
+}
+
+.separator-text {
+    font-size: 0.85em;
+    color: #6c757d;
+    margin-bottom: 15px;
+}
+
+.social-btn-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px; /* Space between buttons */
+}
+
+.social-btn {
+    flex-grow: 1; /* Makes buttons share space equally */
+    padding: 10px 5px;
+    font-size: 0.9em;
+    font-weight: 500;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.social-btn i {
+    margin-right: 5px; /* Space between icon and text */
+}
+
+/* Specific Social Colors */
+.social-btn.google {
+    background-color: #db4437; /* Google Red */
+    color: white;
+}
+.social-btn.google:hover {
+    background-color: #c33a2e;
+}
+
+.social-btn.apple {
+    background-color: #000000; /* Apple Black */
+    color: white;
+}
+.social-btn.apple:hover {
+    opacity: 0.85;
+}
+
+.social-btn.facebook {
+    background-color: #3b5998; /* Facebook Blue */
+    color: white;
+}
+.social-btn.facebook:hover {
+    background-color: #30487b;
 }

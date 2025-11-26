@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - RoadSense AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="profile.css"> </head>
+<body>
+    
+    <header class="main-header">
+        <nav class="nav-container">
+            <a href="dashboard.html" class="header-logo">RoadSense AI 🛡️</a>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-item">Law Library</a></li>
+                <li><a href="#" class="nav-item">Conversation Guide</a></li>
+                <li><a href="profile.html" class="nav-item">My Profile</a></li>
+                <li><a href="index.html" class="nav-item logout-btn">Log Out</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="app-body-wrapper"> 
+        
+        <aside class="sidebar-menu">
+            <h3 class="sidebar-title">Menu</h3>
+            <ul class="sidebar-nav">
+                <li><a href="dashboard.html" class="sidebar-item"><i class="fas fa-search"></i> Quick Search</a></li>
+                <li><a href="#" class="sidebar-item new-chat"><i class="fas fa-edit"></i> New Query</a></li>
+            </ul>
+            
+            <h3 class="sidebar-title">History</h3>
+            <ul class="sidebar-history">
+                <li class="history-item-placeholder">No recent searches.</li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <a href="profile.html" class="sidebar-item settings"><i class="fas fa-cog"></i> Settings & Help</a>
+            </div>
+        </aside>
+
+        <main class="profile-main-content">
+            <section class="profile-card">
+                
+                <div class="profile-header">
+                    
+                    <div class="profile-avatar-container" onclick="document.getElementById('avatar-input').click()">
+                        <img src="https://via.placeholder.com/100/3b82f6/ffffff?text=JD" alt="Profile Avatar" class="profile-avatar">
+                        <i class="fas fa-camera avatar-upload-icon"></i>
+                        <input type="file" id="avatar-input" style="display: none;" accept="image/*">
+                    </div>
+                    
+                    <div class="profile-info">
+                        <h2 id="profile-display-name">Jane Driver</h2> <p class="profile-description" style="border-bottom: none; padding-bottom: 0;">Account & App Preferences</p>
+                    </div>
+                </div>
+                <div class="profile-section personal-details-section">
+                    <h3>Personal Details</h3>
+                    <div class="input-group-grid">
+                        <div class="input-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" value="Jane Driver">
+                        </div>
+                        <div class="input-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" value="jane.driver@roadsense.ai" placeholder="e.g., a.hamidov2006@gmail.com">
+                        </div>
+                        <div class="input-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" value="(555) 123-4567" placeholder="e.g., (555) 123-4567">
+                        </div>
+                        <div class="input-group">
+                            <label for="state">Primary Driving State</label>
+                            <select id="state">
+                                <option value="" disabled>Select Primary Country/Region</option>
+                                <option value="AF">Afghanistan</option>
+                                <option value="AL">Albania</option>
+                                <option value="DZ">Algeria</option>
+                                <option value="AR">Argentina</option>
+                                <option value="AU">Australia</option>
+                                <option value="AT">Austria</option>
+                                <option value="AZ">Azerbaijan</option>
+                                <option value="BH">Bahrain</option>
+                                <option value="BD">Bangladesh</option>
+                                <option value="BE">Belgium</option>
+                                <option value="BR">Brazil</option>
+                                <option value="CA">Canada</option>
+                                <option value="CL">Chile</option>
+                                <option value="CN">China</option>
+                                <option value="CO">Colombia</option>
+                                <option value="EG">Egypt</option>
+                                <option value="FI">Finland</option>
+                                <option value="FR">France</option>
+                                <option value="DE">Germany</option>
+                                <option value="GR">Greece</option>
+                                <option value="HK">Hong Kong</option>
+                                <option value="IN">India</option>
+                                <option value="ID">Indonesia</option>
+                                <option value="IE">Ireland</option>
+                                <option value="IL">Israel</option>
+                                <option value="IT">Italy</option>
+                                <option value="JP">Japan</option>
+                                <option value="KZ">Kazakhstan</option>
+                                <option value="KR">South Korea</option>
+                                <option value="KW">Kuwait</option>
+                                <option value="MY">Malaysia</option>
+                                <option value="MX">Mexico</option>
+                                <option value="NL">Netherlands</option>
+                                <option value="NZ">New Zealand</option>
+                                <option value="NG">Nigeria</option>
+                                <option value="NO">Norway</option>
+                                <option value="PK">Pakistan</option>
+                                <option value="PH">Philippines</option>
+                                <option value="PL">Poland</option>
+                                <option value="PT">Portugal</option>
+                                <option value="QA">Qatar</option>
+                                <option value="RU">Russia</option>
+                                <option value="SA">Saudi Arabia</option>
+                                <option value="SG">Singapore</option>
+                                <option value="ZA">South Africa</option>
+                                <option value="ES">Spain</option>
+                                <option value="SE">Sweden</option>
+                                <option value="CH">Switzerland</option>
+                                <option value="TH">Thailand</option>
+                                <option value="TR">Turkey</option>
+                                <option value="UA">Ukraine</option>
+                                <option value="AE">United Arab Emirates</option>
+                                <option value="GB">United Kingdom</option>
+                                <option value="US">United States</option>
+                                <option value="VN">Vietnam</option>
+                                <option value="ZW">Zimbabwe</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="primary-btn update-btn">Save Personal Details</button>
+                </div>
+
+                <div class="profile-section security-section">
+                    <h3>Security & Access</h3>
+                    <div class="input-group">
+                        <label for="current-password">Current Password</label>
+                        <input type="password" id="current-password" placeholder="Enter current password">
+                    </div>
+                    <div class="input-group">
+                        <label for="new-password">New Password</label>
+                        <input type="password" id="new-password" placeholder="Enter new password">
+                    </div>
+                    <button class="primary-btn update-btn">Update Password</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 RoadSense AI Project</p>
+    </footer>
+
+    <script>
+        // 1. Get references to the HTML elements
+        const nameInput = document.getElementById('name');
+        const displayName = document.getElementById('profile-display-name');
+        
+        // Function to update the display name
+        function updateDisplayName() {
+            const inputValue = nameInput.value.trim();
+            
+            if (inputValue) {
+                // If the input is not empty, display the input value
+                displayName.textContent = inputValue;
+            } else {
+                // If the input is empty, revert to a default
+                displayName.textContent = "Your Name";
+            }
+        }
+
+        // 2. Attach the update function to the input event (updates as user types)
+        nameInput.addEventListener('input', updateDisplayName);
+
+        // Optional: Run once on page load to initialize the display name (e.g., Jane Driver)
+        window.addEventListener('load', updateDisplayName);
+    </script>
+    </body>
+</html>

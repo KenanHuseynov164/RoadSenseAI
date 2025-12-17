@@ -3,7 +3,7 @@
 # --------------------------------------------
 
 # Set API KEY globally for all child PowerShell processes
-$env:OPENAI_API_KEY = "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"
+$env:OPENAI_API_KEY = "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"
 
 Write-Host "Starting RoadSenseAI..." -ForegroundColor Cyan
 
